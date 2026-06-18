@@ -1,78 +1,133 @@
-// Common types
-export * from './common';
+export type AttendanceStatus = 'PRESENT' | 'LATE' | 'ABSENT' | 'ON_LEAVE' | 'HALF_DAY' | 'HOLIDAY' | 'UNROSTERED';
 
-// Domain types
-export * from './user';
-export * from './admin';
-export * from './tenant';
-export * from './feature-flags';
-export * from './billing';
-export * from './system-monitor';
+export type LeaveStatus = 'PENDING' | 'APPROVED' | 'REJECTED' | 'CANCELLED';
 
-// API types
-export * from './api';
+export type EmploymentStatus = 'ACTIVE' | 'INACTIVE' | 'SUSPENDED' | 'TERMINATED';
 
-// ─── Utility Types ──────────────────────────────────────────────────────────
+export type EmploymentType = 'FULL_TIME' | 'PART_TIME' | 'CONTRACT' | 'LOCUM' | 'INTERN';
 
-/**
- * Extract the response type from an API endpoint
- */
-export type ApiResponseType<T extends keyof import('./api').ApiEndpoints, K extends keyof import('./api').ApiEndpoints[T]> = 
-  import('./api').ApiEndpoints[T][K]['response'];
+export type ShiftType = 'MORNING' | 'AFTERNOON' | 'NIGHT' | 'FLEXIBLE' | 'CUSTOM';
 
-/**
- * Extract the request type from an API endpoint
- */
-export type ApiRequestType<T extends keyof import('./api').ApiEndpoints, K extends keyof import('./api').ApiEndpoints[T]> = 
-  import('./api').ApiEndpoints[T][K]['request'];
+export interface DashboardStats {
+  date: string;
+  totalSummaries: number;
+  present: number;
+  late: number;
+  absent: number;
+  onLeave: number;
+  totalEmployees: number;
+  attendanceRate: number;
+}
 
-/**
- * Deep readonly
- */
-export type DeepReadonly<T> = {
-  readonly [P in keyof T]: T[P] extends object ? DeepReadonly<T[P]> : T[P];
-};
+export interface AttendanceSummary {
+  id: string;
+  userId: string;
+  date: string;
+  status: AttendanceStatus;
+  firstIn: string | null;
+  lastOut: string | null;
+  totalHours: number | null;
+  lateMinutes: number;
+  overtimeHours: number;
+  shiftName: string | null;
+  scheduledStart: string | null;
+  scheduledEnd: string | null;
+  user: {
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    departmentId: string | null;
+    payrollNumber?: string;
+  };
+  shift?: { id: string; name: string; startTime: string } | null;
+  logs?: AttendanceLog[];
+}
 
-/**
- * Extract array item type
- */
-export type ArrayItem<T> = T extends Array<infer U> ? U : never;
+export interface AttendanceLog {
+  id: string;
+  userId: string;
+  deviceId: string;
+  direction: 'IN' | 'OUT';
+  timestamp: string;
+  device?: { id: string; name: string };
+}
 
-/**
- * Extract promise return type
- */
-export type PromiseReturn<T> = T extends Promise<infer U> ? U : never;
+export interface ShiftTemplate {
+  id: string;
+  name: string;
+  type: ShiftType;
+  startTime: string;
+  endTime: string;
+  gracePeriodMinutes: number;
+  earlyClockInWindowMinutes: number;
+  overtimeThresholdMinutes: number;
+  isOvernight: boolean;
+  isActive: boolean;
+  effectiveFrom: string | null;
+  effectiveTo: string | null;
+}
 
-/**
- * Function type
- */
-export type AnyFunction = (...args: any[]) => any;
+export interface Employee {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string | null;
+  payrollNumber: string;
+  employeeCode: string;
+  role: string;
+  departmentId: string | null;
+  department?: { id: string; name: string; code: string } | null;
+  employmentType: EmploymentType;
+  employmentStatus: EmploymentStatus;
+  hourlyRate: number;
+  isActive: boolean;
+  createdAt: string;
+}
 
-/**
- * Constructor type
- */
-export type Constructor<T> = new (...args: any[]) => T;
+export interface LeaveRequest {
+  id: string;
+  employeeId: string;
+  leaveType: string;
+  startDate: string;
+  endDate: string;
+  status: LeaveStatus;
+  reason?: string;
+  createdAt: string;
+  employee?: { firstName: string; lastName: string; payrollNumber: string };
+}
 
-/**
- * Key value pair
- */
-export type KeyValuePair<K extends string | number | symbol = string, V = any> = {
-  [P in K]: V;
-};
+export interface CompiledReport {
+  id: string;
+  reportType: string;
+  dateRangeStart: string;
+  dateRangeEnd: string;
+  generatedBy: { id: string; firstName: string; lastName: string; email: string };
+  createdAt: string;
+  compiledData?: {
+    summary: Record<string, any>;
+    rows: any[];
+  };
+}
 
-/**
- * Maybe type
- */
-export type Maybe<T> = T | null | undefined;
+export interface PaginatedResponse<T> {
+  data: T[];
+  meta: {
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+  };
+}
 
-/**
- * Extract keys with value type
- */
-export type KeysWithValue<T, V> = {
-  [K in keyof T]: T[K] extends V ? K : never;
-}[keyof T];
-
-/**
- * Pick keys with value type
- */
-export type PickWithValue<T, V> = Pick<T, KeysWithValue<T, V>>;
+export interface AuthUser {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: string;
+  tenantId: string;
+  departmentId: string | null;
+  department?: { id: string; name: string; code: string } | null;
+}

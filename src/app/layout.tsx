@@ -1,24 +1,22 @@
+// Shared application shell — required by Next.js App Router (every app needs exactly
+// one root layout). This is infrastructure shared across all five role dashboards
+// (Super Admin, Hospital Admin, HOD, HR, General User), not HOD-specific code.
+// It intentionally contains no auth logic, no role checks, and no navigation —
+// those live in each role's own layout (e.g. HODLayout) and in the shared login page
+// owned elsewhere in the team.
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
-import { Providers } from './providers';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Super Admin Dashboard',
-  description: 'Chronos super Admin platform',
+  title: 'Chronos — Hospital Workforce Management',
+  description: 'Hospital staff clock-in and attendance management platform',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Providers>{children}</Providers>
+      <body className="font-sans antialiased text-slate-900 bg-slate-50">
+        {children}
       </body>
     </html>
   );
