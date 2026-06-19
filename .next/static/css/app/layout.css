@@ -2543,6 +2543,9 @@ video {
 .leading-tight {
   line-height: 1.25;
 }
+.tracking-\[0\.5em\] {
+  letter-spacing: 0.5em;
+}
 .tracking-tight {
   letter-spacing: -0.025em;
 }
@@ -2554,9 +2557,6 @@ video {
 }
 .tracking-widest {
   letter-spacing: 0.1em;
-}
-.tracking-\[0\.5em\] {
-  letter-spacing: 0.5em;
 }
 .text-\[\#111827\] {
   --tw-text-opacity: 1;
