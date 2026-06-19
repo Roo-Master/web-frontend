@@ -1,9 +1,7 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/hr-dashboard/hr-pages/shifts/page": "app/hr-dashboard/hr-pages/shifts/page.js",
-  "/hr-dashboard/hr-pages/payroll/page": "app/hr-dashboard/hr-pages/payroll/page.js",
-  "/hr-dashboard/hr-pages/employees/page": "app/hr-dashboard/hr-pages/employees/page.js",
+  "/auth/login/page": "app/auth/login/page.js",
   "/hr-dashboard/hr-pages/reports/page": "app/hr-dashboard/hr-pages/reports/page.js",
   "/hr-dashboard/hr-pages/settings/page": "app/hr-dashboard/hr-pages/settings/page.js",
-  "/hr-dashboard/payroll/page": "app/hr-dashboard/payroll/page.js"
+  "/hospital-admin/dashboard/page": "app/hospital-admin/dashboard/page.js",
+  "/hospital-admin/employees/page": "app/hospital-admin/employees/page.js"
 }
