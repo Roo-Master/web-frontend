@@ -6,15 +6,65 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/page": [
+    "/hr-dashboard/hr-pages/shifts/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/hr-dashboard/hr-pages/shifts/page.js"
     ],
-    "/hospital-admin/dashboard/page": [
+    "/hr-dashboard/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/hospital-admin/dashboard/page.js"
+      "static/chunks/app/hr-dashboard/layout.js"
+    ],
+    "/hr-dashboard/shifts/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hr-dashboard/shifts/page.js"
+    ],
+    "/hr-dashboard/leave/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hr-dashboard/leave/page.js"
+    ],
+    "/hr-dashboard/hr-pages/leave/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hr-dashboard/hr-pages/leave/page.js"
+    ],
+    "/hr-dashboard/payroll/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hr-dashboard/payroll/page.js"
+    ],
+    "/hr-dashboard/hr-pages/payroll/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hr-dashboard/hr-pages/payroll/page.js"
+    ],
+    "/hr-dashboard/hr-pages/employees/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hr-dashboard/hr-pages/employees/page.js"
+    ],
+    "/hr-dashboard/hr-pages/reports/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hr-dashboard/hr-pages/reports/page.js"
+    ],
+    "/hr-dashboard/reports/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hr-dashboard/reports/page.js"
+    ],
+    "/hr-dashboard/settings/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hr-dashboard/settings/page.js"
+    ],
+    "/hr-dashboard/hr-pages/settings/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hr-dashboard/hr-pages/settings/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",

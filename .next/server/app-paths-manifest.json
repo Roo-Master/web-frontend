@@ -1,3 +1,9 @@
 {
-  "/page": "app/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/hr-dashboard/hr-pages/shifts/page": "app/hr-dashboard/hr-pages/shifts/page.js",
+  "/hr-dashboard/hr-pages/payroll/page": "app/hr-dashboard/hr-pages/payroll/page.js",
+  "/hr-dashboard/hr-pages/employees/page": "app/hr-dashboard/hr-pages/employees/page.js",
+  "/hr-dashboard/hr-pages/reports/page": "app/hr-dashboard/hr-pages/reports/page.js",
+  "/hr-dashboard/hr-pages/settings/page": "app/hr-dashboard/hr-pages/settings/page.js",
+  "/hr-dashboard/payroll/page": "app/hr-dashboard/payroll/page.js"
 }
