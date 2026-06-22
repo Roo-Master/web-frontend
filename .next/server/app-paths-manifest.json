@@ -1,8 +1,11 @@
 {
-  "/page": "app/page.js",
-  "/hod/dashboard/page": "app/hod/dashboard/page.js",
-  "/super-admin/dashboard/page": "app/super-admin/dashboard/page.js",
   "/auth/login/page": "app/auth/login/page.js",
-  "/hospital-admin/dashboard/page": "app/hospital-admin/dashboard/page.js",
-  "/hospital-admin/employees/page": "app/hospital-admin/employees/page.js"
+  "/hod/dashboard/page": "app/hod/dashboard/page.js",
+  "/hr-dashboard/dashboard/page": "app/hr-dashboard/dashboard/page.js",
+  "/hr-dashboard/hr-pages/dashboard/page": "app/hr-dashboard/hr-pages/dashboard/page.js",
+  "/user-dashboard/page": "app/user-dashboard/page.js",
+  "/user-dashboard/attendance/page": "app/user-dashboard/attendance/page.js",
+  "/user-dashboard/apply-leave/page": "app/user-dashboard/apply-leave/page.js",
+  "/user-dashboard/leave-balances/page": "app/user-dashboard/leave-balances/page.js",
+  "/user-dashboard/leave-history/page": "app/user-dashboard/leave-history/page.js"
 }

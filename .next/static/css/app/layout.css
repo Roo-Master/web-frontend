@@ -516,9 +516,6 @@ video {
 .pointer-events-none {
   pointer-events: none;
 }
-.visible {
-  visibility: visible;
-}
 .invisible {
   visibility: hidden;
 }
@@ -1103,9 +1100,6 @@ video {
 .flex-shrink-0 {
   flex-shrink: 0;
 }
-.shrink {
-  flex-shrink: 1;
-}
 .shrink-0 {
   flex-shrink: 0;
 }
@@ -1219,23 +1213,23 @@ video {
 .grid-cols-\[120px_1fr_120px_100px\] {
   grid-template-columns: 120px 1fr 120px 100px;
 }
-.grid-cols-\[140px_1fr_1fr_120px_90px\] {
-  grid-template-columns: 140px 1fr 1fr 120px 90px;
+.grid-cols-\[140px_1fr_120px_90px\] {
+  grid-template-columns: 140px 1fr 120px 90px;
 }
-.grid-cols-\[140px_1fr_80px_80px_90px_100px\] {
-  grid-template-columns: 140px 1fr 80px 80px 90px 100px;
+.grid-cols-\[140px_80px_80px_90px_100px\] {
+  grid-template-columns: 140px 80px 80px 90px 100px;
 }
-.grid-cols-\[140px_80px_100px_1fr_1fr_90px\] {
-  grid-template-columns: 140px 80px 100px 1fr 1fr 90px;
+.grid-cols-\[150px_1fr_100px_80px_80px_110px\] {
+  grid-template-columns: 150px 1fr 100px 80px 80px 110px;
 }
-.grid-cols-\[150px_1fr_100px_80px_80px_80px_110px\] {
-  grid-template-columns: 150px 1fr 100px 80px 80px 80px 110px;
+.grid-cols-\[160px_80px_100px_1fr_90px\] {
+  grid-template-columns: 160px 80px 100px 1fr 90px;
 }
 .grid-cols-\[1fr_300px\] {
   grid-template-columns: 1fr 300px;
 }
-.grid-cols-\[80px_120px_1fr_70px_110px_100px\] {
-  grid-template-columns: 80px 120px 1fr 70px 110px 100px;
+.grid-cols-\[80px_130px_1fr_70px_110px_110px\] {
+  grid-template-columns: 80px 130px 1fr 70px 110px 110px;
 }
 .flex-col {
   flex-direction: column;
@@ -1361,9 +1355,8 @@ video {
   --tw-divide-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-divide-opacity, 1));
 }
-.divide-gray-100 > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-opacity: 1;
-  border-color: rgb(243 244 246 / var(--tw-divide-opacity, 1));
+.divide-border\/60 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgb(229 231 235 / 0.6);
 }
 .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
@@ -1374,10 +1367,6 @@ video {
 }
 .divide-gray-800\/60 > :not([hidden]) ~ :not([hidden]) {
   border-color: rgb(31 41 55 / 0.6);
-}
-.divide-slate-100 > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-opacity: 1;
-  border-color: rgb(241 245 249 / var(--tw-divide-opacity, 1));
 }
 .self-start {
   align-self: flex-start;
@@ -1704,9 +1693,6 @@ video {
 }
 .border-transparent {
   border-color: transparent;
-}
-.border-warning\/20 {
-  border-color: rgb(234 88 12 / 0.2);
 }
 .border-warning\/30 {
   border-color: rgb(234 88 12 / 0.3);
@@ -3019,68 +3005,85 @@ video {
    Every color, spacing, and radius value used across dashboard modules
    should trace back to one of these so all modules share one visual language.
    ───────────────────────────────────────────────────────────────────────── */
+
 :root {
-  --color-info-bg: #DBEAFE;
-  --color-info: #2563EB;
-  --color-success-bg: #DCFCE7;
-  --color-success: #16A34A;
-  --color-warning-bg: #FFEDD5;
-  --color-warning: #EA580C;
-  --color-danger-bg: #FEE2E2;
-  --color-danger: #DC2626;
-
-  --color-bg-page: #F5F6FA;
-  --color-bg-surface: #FFFFFF;
-  --color-bg-sidebar: #0F1B3D;
-  --color-border: #E5E7EB;
-  --color-text-primary: #111827;
-  --color-text-secondary: #6B7280;
-  --color-text-tertiary: #9CA3AF;
-
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-12: 48px;
-
-  --radius-card: 12px;
-  --radius-badge: 8px;
-  --radius-pill: 999px;
-
-  --text-display: 24px;
-  --text-heading: 17px;
-  --text-stat: 30px;
-  --text-body: 14px;
-  --text-label: 13px;
+    --color-info-bg: #DBEAFE;
+    --color-info: #2563EB;
+    --color-success-bg: #DCFCE7;
+    --color-success: #16A34A;
+    --color-warning-bg: #FFEDD5;
+    --color-warning: #EA580C;
+    --color-danger-bg: #FEE2E2;
+    --color-danger: #DC2626;
+    --color-bg-page: #F5F6FA;
+    --color-bg-surface: #FFFFFF;
+    --color-bg-sidebar: #0F1B3D;
+    --color-border: #E5E7EB;
+    --color-text-primary: #111827;
+    --color-text-secondary: #6B7280;
+    --color-text-tertiary: #9CA3AF;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-12: 48px;
+    --radius-card: 12px;
+    --radius-badge: 8px;
+    --radius-pill: 999px;
+    --text-display: 24px;
+    --text-heading: 17px;
+    --text-stat: 30px;
+    --text-body: 14px;
+    --text-label: 13px;
 }
 
 @keyframes pulse-slide {
-  0%   { transform: translateX(-100%); opacity: 0; }
-  50%  { opacity: 1; }
-  100% { transform: translateX(300%); opacity: 0; }
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(300%);
+        opacity: 0;
+    }
 }
 
-html, body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: #F5F6FA;
-  color: #111827;
+html,
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #F5F6FA;
+    color: #111827;
 }
 
 * {
-  scrollbar-width: thin;
-  scrollbar-color: #cbd5e1 transparent;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+    }
 }
 
 @media print {
-  aside, header { display: none !important; }
-  main { margin-left: 0 !important; padding: 0 !important; }
-  body { background: white !important; }
+    aside,
+    header {
+        display: none !important;
+    }
+    main {
+        margin-left: 0 !important;
+        padding: 0 !important;
+    }
+    body {
+        background: white !important;
+    }
 }
 
 .placeholder\:text-text-tertiary::-moz-placeholder {
@@ -3154,6 +3157,10 @@ html, body {
 
 .last\:border-0:last-child {
   border-width: 0px;
+}
+
+.last\:pb-0:last-child {
+  padding-bottom: 0px;
 }
 
 .hover\:border-\[\#2563EB\]:hover {
@@ -3275,10 +3282,6 @@ html, body {
 .hover\:bg-blue-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(219 234 254 / var(--tw-bg-opacity, 1));
-}
-
-.hover\:bg-blue-50\/40:hover {
-  background-color: rgb(239 246 255 / 0.4);
 }
 
 .hover\:bg-blue-500:hover {
@@ -3737,11 +3740,6 @@ html, body {
 
 .focus\:ring-success\/50:focus {
   --tw-ring-color: rgb(22 163 74 / 0.5);
-}
-
-.focus\:ring-teal-500:focus {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(20 184 166 / var(--tw-ring-opacity, 1));
 }
 
 .focus\:ring-text-secondary\/50:focus {

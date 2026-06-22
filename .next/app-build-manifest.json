@@ -1,35 +1,15 @@
 {
   "pages": {
-    "/page": [
+    "/auth/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/auth/login/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
-    ],
-    "/super-admin/dashboard/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/super-admin/dashboard/page.js"
-    ],
-    "/super-admin/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/super-admin/layout.js"
-    ],
-    "/auth/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/auth/login/page.js"
-    ],
-    "/auth/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/auth/layout.js"
     ],
     "/hod/dashboard/page": [
       "static/chunks/webpack.js",
@@ -51,20 +31,35 @@
       "static/chunks/main-app.js",
       "static/chunks/app/hr-dashboard/hr-pages/dashboard/page.js"
     ],
-    "/hospital-admin/dashboard/page": [
+    "/user-dashboard/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/hospital-admin/dashboard/page.js"
+      "static/chunks/app/user-dashboard/page.js"
     ],
-    "/hospital-admin/layout": [
+    "/user-dashboard/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/hospital-admin/layout.js"
+      "static/chunks/app/user-dashboard/layout.js"
     ],
-    "/hospital-admin/employees/page": [
+    "/user-dashboard/attendance/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/hospital-admin/employees/page.js"
+      "static/chunks/app/user-dashboard/attendance/page.js"
+    ],
+    "/user-dashboard/apply-leave/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/user-dashboard/apply-leave/page.js"
+    ],
+    "/user-dashboard/leave-balances/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/user-dashboard/leave-balances/page.js"
+    ],
+    "/user-dashboard/leave-history/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/user-dashboard/leave-history/page.js"
     ]
   }
 }
