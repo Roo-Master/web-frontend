@@ -1,7 +1,8 @@
 {
+  "/page": "app/page.js",
+  "/hod/dashboard/page": "app/hod/dashboard/page.js",
+  "/super-admin/dashboard/page": "app/super-admin/dashboard/page.js",
   "/auth/login/page": "app/auth/login/page.js",
-  "/hr-dashboard/hr-pages/reports/page": "app/hr-dashboard/hr-pages/reports/page.js",
-  "/hr-dashboard/hr-pages/settings/page": "app/hr-dashboard/hr-pages/settings/page.js",
   "/hospital-admin/dashboard/page": "app/hospital-admin/dashboard/page.js",
   "/hospital-admin/employees/page": "app/hospital-admin/employees/page.js"
 }

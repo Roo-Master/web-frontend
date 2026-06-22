@@ -23,17 +23,23 @@ interface Stat {
   sub: string;
   delta?: string;
   deltaUp?: boolean;
-  // Semantic intent drives icon + tint — §3.1
   intent: 'info' | 'success' | 'warning' | 'danger' | 'neutral';
-  icon: string; // tabler icon name e.g. "ti-currency-dollar"
+  icon: string;
 }
 
 // ── Helpers ────────────────────────────────────────────────────────────────
 
 const PLACEHOLDER: PlatformStats = {
-  totalTenants: 0, activeTenants: 0, suspendedTenants: 0,
-  trialTenants: 0, totalStaff: 0, totalClockInsToday: 0,
-  mrr: 0, arr: 0, churnRate: 0, newTenantsThisMonth: 0,
+  totalTenants: 0,
+  activeTenants: 0,
+  suspendedTenants: 0,
+  trialTenants: 0,
+  totalStaff: 0,
+  totalClockInsToday: 0,
+  mrr: 0,
+  arr: 0,
+  churnRate: 0,
+  newTenantsThisMonth: 0,
 };
 
 function formatCurrency(n: number) {
@@ -96,34 +102,29 @@ function buildStats(d: PlatformStats): Stat[] {
   ];
 }
 
-// ── Intent → design-doc semantic color classes — §3.1 ─────────────────────
-// Fill (tint bg) paired with matching strong text/icon color.
-// Never plain black on a colored tint.
+// ── Intent → semantic color classes ─────────────────────────────────────
 
 const INTENT_ICON_BG: Record<string, string> = {
-  info:    'bg-info-bg',
+  info: 'bg-info-bg',
   success: 'bg-success-bg',
   warning: 'bg-warning-bg',
-  danger:  'bg-danger-bg',
+  danger: 'bg-danger-bg',
   neutral: 'bg-border',
 };
 
 const INTENT_ICON_COLOR: Record<string, string> = {
-  info:    'text-info',
+  info: 'text-info',
   success: 'text-success',
   warning: 'text-warning',
-  danger:  'text-danger',
+  danger: 'text-danger',
   neutral: 'text-secondary',
 };
 
-// ── Stat Card — §7.2 ──────────────────────────────────────────────────────
+// ── Stat Card ──────────────────────────────────────────────────────────────
 
 function StatCard({ stat }: { stat: Stat }) {
   return (
-    // Card base — §7.1: white bg, 1px border, radius-card, space-6 padding
     <div className="bg-surface border border-border rounded-card p-6 flex items-start gap-3">
-
-      {/* Icon — 40–48px rounded square, tinted bg, semantic icon — §7.2 */}
       <div
         className={`flex-shrink-0 w-11 h-11 rounded-badge flex items-center justify-center
           ${INTENT_ICON_BG[stat.intent]}`}
@@ -131,19 +132,10 @@ function StatCard({ stat }: { stat: Stat }) {
       >
         <i className={`ti ${stat.icon} text-2xl ${INTENT_ICON_COLOR[stat.intent]}`} />
       </div>
-
-      {/* Text block */}
       <div className="min-w-0 flex-1">
-        {/* Label — text-label / text-secondary — §4.1 */}
         <p className="text-label text-secondary truncate">{stat.label}</p>
-
-        {/* Value — text-stat / text-primary — §4.1 */}
         <p className="text-stat text-primary mt-1 tabular-nums">{stat.value}</p>
-
-        {/* Sub — text-label / text-tertiary */}
         <p className="text-label text-tertiary mt-0.5">{stat.sub}</p>
-
-        {/* Delta — text-delta, colored per semantic — §3.1 §4.1 */}
         {stat.delta && (
           <p className={`text-delta mt-1 flex items-center gap-1 ${stat.deltaUp ? 'text-success' : 'text-danger'}`}>
             <i className={`ti ${stat.deltaUp ? 'ti-trending-up' : 'ti-trending-down'} text-sm`} aria-hidden="true" />
@@ -182,7 +174,6 @@ export function PlatformStatsGrid({ data }: { data?: PlatformStats }) {
     load();
   }, [data]);
 
-  // Loading skeleton — same card shape, no color
   if (loading) {
     return (
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
@@ -196,7 +187,6 @@ export function PlatformStatsGrid({ data }: { data?: PlatformStats }) {
     );
   }
 
-  // 5-column KPI row per §2.2 — falls back to 3-col on smaller viewports
   return (
     <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
       {stats.map((stat) => (
@@ -205,3 +195,5 @@ export function PlatformStatsGrid({ data }: { data?: PlatformStats }) {
     </div>
   );
 }
+
+export default PlatformStatsGrid;
