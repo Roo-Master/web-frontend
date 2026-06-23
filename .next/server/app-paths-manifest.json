@@ -1,3 +1,14 @@
 {
-  "/page": "app/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
+  "/hospital-admin/dashboard/page": "app/hospital-admin/dashboard/page.js",
+  "/hospital-admin/departments/page": "app/hospital-admin/departments/page.js",
+  "/hospital-admin/attendance/page": "app/hospital-admin/attendance/page.js",
+  "/hospital-admin/leave/page": "app/hospital-admin/leave/page.js",
+  "/hospital-admin/shifts/page": "app/hospital-admin/shifts/page.js",
+  "/hospital-admin/payroll/page": "app/hospital-admin/payroll/page.js",
+  "/hospital-admin/reports/page": "app/hospital-admin/reports/page.js",
+  "/hospital-admin/notifications/page": "app/hospital-admin/notifications/page.js",
+  "/hospital-admin/devices/page": "app/hospital-admin/devices/page.js",
+  "/hospital-admin/settings/page": "app/hospital-admin/settings/page.js"
 }

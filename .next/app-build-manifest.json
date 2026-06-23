@@ -21,6 +21,51 @@
       "static/chunks/main-app.js",
       "static/chunks/app/hospital-admin/layout.js"
     ],
+    "/hospital-admin/departments/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hospital-admin/departments/page.js"
+    ],
+    "/hospital-admin/attendance/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hospital-admin/attendance/page.js"
+    ],
+    "/hospital-admin/leave/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hospital-admin/leave/page.js"
+    ],
+    "/hospital-admin/shifts/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hospital-admin/shifts/page.js"
+    ],
+    "/hospital-admin/payroll/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hospital-admin/payroll/page.js"
+    ],
+    "/hospital-admin/reports/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hospital-admin/reports/page.js"
+    ],
+    "/hospital-admin/notifications/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hospital-admin/notifications/page.js"
+    ],
+    "/hospital-admin/devices/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hospital-admin/devices/page.js"
+    ],
+    "/hospital-admin/settings/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/hospital-admin/settings/page.js"
+    ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
