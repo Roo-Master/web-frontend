@@ -1,6 +1,5 @@
-"use client";
-import DashboardPage from "../../../pages/DashboardPage";
+import { redirect } from 'next/navigation'
 
-export default function Page() {
-  return <DashboardPage />;
+export default function HospitalAdminPage() {
+  redirect('/hospital-admin/dashboard')
 }
