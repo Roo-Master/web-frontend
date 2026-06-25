@@ -1,5 +1,15 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
+  "/super-admin/profile/page": "app/super-admin/profile/page.js",
   "/api/super-admin/notifications/unread-count/route": "app/api/super-admin/notifications/unread-count/route.js",
-  "/super-admin/profile/page": "app/super-admin/profile/page.js"
+  "/super-admin/dashboard/page": "app/super-admin/dashboard/page.js",
+  "/api/super-admin/stats/route": "app/api/super-admin/stats/route.js",
+  "/super-admin/billing/page": "app/super-admin/billing/page.js",
+  "/super-admin/tenants/page": "app/super-admin/tenants/page.js",
+  "/super-admin/feature-flags/page": "app/super-admin/feature-flags/page.js",
+  "/super-admin/admins/page": "app/super-admin/admins/page.js",
+  "/api/super-admin/admins/route": "app/api/super-admin/admins/route.js",
+  "/super-admin/monitoring/page": "app/super-admin/monitoring/page.js",
+  "/api/super-admin/system-monitor/route": "app/api/super-admin/system-monitor/route.js",
+  "/super-admin/settings/page": "app/super-admin/settings/page.js"
 }
