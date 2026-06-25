@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { superAdminApi } from '@/lib/(super-admin)/super-admin/api';
 
 export function SuperAdminTopbar() {
   const [unreadCount, setUnreadCount] = useState(0);
@@ -12,7 +11,9 @@ export function SuperAdminTopbar() {
 
     const loadUnreadCount = async () => {
       try {
-        const data = await superAdminApi.getUnreadCount();
+        const res = await fetch('/api/notifications/unread-count');
+        if (!res.ok) return;
+        const data = await res.json();
         if (!cancelled) setUnreadCount(data.unreadCount ?? 0);
       } catch (err) {
         console.error('Failed to load unread notification count', err);
@@ -35,7 +36,7 @@ export function SuperAdminTopbar() {
       </div>
       <div className="flex items-center gap-4">
         <Link
-          href="/super-admin/notifications"
+          href="/notifications"
           aria-label="Notifications"
           className="relative text-gray-400 hover:text-white text-sm transition-colors"
         >
@@ -46,8 +47,9 @@ export function SuperAdminTopbar() {
             </span>
           )}
         </Link>
+
         <Link
-          href="/super-admin/profile"
+          href="/profile"
           aria-label="View profile"
           className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-xs font-bold transition-colors hover:bg-blue-500"
         >
@@ -58,4 +60,5 @@ export function SuperAdminTopbar() {
   );
 }
 
+// Export as Header for consistent naming
 export { SuperAdminTopbar as Header };

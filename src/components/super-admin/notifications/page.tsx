@@ -4,28 +4,29 @@ import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import { AppNotification, NotificationType } from '@/lib/(super-admin)/super-admin/types';
 import { formatRelativeTime } from '@/lib/(super-admin)/super-admin/format';
-import { superAdminApi } from '@/lib/(super-admin)/super-admin/api';
 
 type Filter = 'all' | 'unread';
 
 const TYPE_STYLES: Record<NotificationType, { badge: string; icon: string; label: string }> = {
   success: { badge: 'bg-green-500/10 text-green-400', icon: '✓', label: 'Success' },
-  error:   { badge: 'bg-red-500/10 text-red-400',     icon: '!', label: 'Error' },
+  error: { badge: 'bg-red-500/10 text-red-400', icon: '!', label: 'Error' },
   warning: { badge: 'bg-amber-500/10 text-amber-400', icon: '⚠', label: 'Warning' },
-  info:    { badge: 'bg-blue-500/10 text-blue-400',   icon: 'i', label: 'Info' },
+  info: { badge: 'bg-blue-500/10 text-blue-400', icon: 'i', label: 'Info' },
 };
 
 export default function NotificationsPage() {
   const [notifications, setNotifications] = useState<AppNotification[]>([]);
-  const [isLoading, setIsLoading]         = useState(true);
-  const [error, setError]                 = useState<string | null>(null);
-  const [filter, setFilter]               = useState<Filter>('all');
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [filter, setFilter] = useState<Filter>('all');
 
   const loadNotifications = async () => {
     setIsLoading(true);
     setError(null);
     try {
-      const data = await superAdminApi.getNotifications() as { notifications: AppNotification[] };
+      const res = await fetch('/api/notifications');
+      if (!res.ok) throw new Error('Failed to load notifications');
+      const data = await res.json();
       setNotifications(data.notifications ?? []);
     } catch (err) {
       setError('Could not load notifications. Try refreshing the page.');
@@ -50,14 +51,22 @@ export default function NotificationsPage() {
   );
 
   const markAsRead = async (id: string, read: boolean) => {
-    // Optimistic update
-    setNotifications((prev) => prev.map((n) => (n.id === id ? { ...n, read } : n)));
+    setNotifications((prev) =>
+      prev.map((n) => (n.id === id ? { ...n, read } : n))
+    );
     try {
-      await superAdminApi.markNotification(id, read);
+      const res = await fetch(`/api/notifications/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ read }),
+      });
+      if (!res.ok) throw new Error('Failed to update notification');
     } catch (err) {
       console.error(err);
       // Roll back on failure
-      setNotifications((prev) => prev.map((n) => (n.id === id ? { ...n, read: !read } : n)));
+      setNotifications((prev) =>
+        prev.map((n) => (n.id === id ? { ...n, read: !read } : n))
+      );
     }
   };
 
@@ -65,7 +74,8 @@ export default function NotificationsPage() {
     const previous = notifications;
     setNotifications((prev) => prev.filter((n) => n.id !== id));
     try {
-      await superAdminApi.dismissNotification(id);
+      const res = await fetch(`/api/notifications/${id}`, { method: 'DELETE' });
+      if (!res.ok) throw new Error('Failed to delete notification');
     } catch (err) {
       console.error(err);
       setNotifications(previous);
@@ -77,9 +87,8 @@ export default function NotificationsPage() {
     const previous = notifications;
     setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
     try {
-      const data = await superAdminApi.markAllAsRead() as { notifications: AppNotification[] };
-      // Sync with server response instead of relying solely on optimistic state
-      setNotifications(data.notifications ?? previous);
+      const res = await fetch('/api/notifications', { method: 'POST' });
+      if (!res.ok) throw new Error('Failed to mark all as read');
     } catch (err) {
       console.error(err);
       setNotifications(previous);

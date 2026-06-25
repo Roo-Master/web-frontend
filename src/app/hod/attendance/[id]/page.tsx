@@ -9,7 +9,7 @@ import {
   fmtTimeLong,
   fmtTimeShort,
   useHODAttendanceDetail,
-} from '../../../../hooks/hod-hooks';
+} from '../../../../hod-hooks';
 
 export default function AttendanceDetailPage() {
   const { id } = useParams<{ id: string }>();

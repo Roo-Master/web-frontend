@@ -1,30 +1,30 @@
-'use client'
-
-import React, { useState } from 'react'
+"use client";
+// src/components/AttendanceLineChart.tsx
+import React, { useState } from 'react';
 import {
   LineChart, Line, XAxis, YAxis,
   CartesianGrid, Tooltip, ResponsiveContainer,
-} from 'recharts'
-import { ChevronDown } from 'lucide-react'
-import Card from '@/components/hospital-admin/Card'
-import { lineChartData } from '@/data'
+} from 'recharts';
+import { ChevronDown } from 'lucide-react';
+import Card from './Card';
+import { lineChartData } from '../../data';
 
 const LINES = [
   { key: 'Present', color: 'var(--color-success)' },
   { key: 'OnLeave', color: 'var(--color-warning)' },
-  { key: 'Absent', color: 'var(--color-danger)' },
-]
+  { key: 'Absent',  color: 'var(--color-danger)'  },
+];
 
 const CustomTooltip: React.FC<any> = ({ active, payload, label }) => {
-  if (!active || !payload?.length) return null
+  if (!active || !payload?.length) return null;
   return (
     <div
       style={{
-        background: 'var(--color-bg-surface)',
-        border: '1px solid var(--color-border)',
+        background:   'var(--color-bg-surface)',
+        border:       '1px solid var(--color-border)',
         borderRadius: 'var(--radius-badge)',
-        padding: 'var(--space-3) var(--space-4)',
-        boxShadow: '0 4px 12px rgba(0,0,0,.10)',
+        padding:      'var(--space-3) var(--space-4)',
+        boxShadow:    '0 4px 12px rgba(0,0,0,.10)',
       }}
     >
       <p style={{ fontSize: 'var(--text-label)', fontWeight: 600, marginBottom: 'var(--space-2)', color: 'var(--color-text-primary)' }}>
@@ -40,35 +40,34 @@ const CustomTooltip: React.FC<any> = ({ active, payload, label }) => {
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default function AttendanceLineChart() {
-  const [period, setPeriod] = useState('This Month')
+const AttendanceLineChart: React.FC = () => {
+  const [period, setPeriod] = useState('This Month');
 
   const periodBtn = (
     <button
       style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 'var(--space-1)',
-        background: 'var(--color-bg-page)',
-        border: '1px solid var(--color-border)',
+        display:      'flex',
+        alignItems:   'center',
+        gap:          'var(--space-1)',
+        background:   'var(--color-bg-page)',
+        border:       '1px solid var(--color-border)',
         borderRadius: 'var(--radius-badge)',
-        padding: '4px var(--space-3)',
-        fontSize: 'var(--text-label)',
-        color: 'var(--color-text-secondary)',
-        cursor: 'pointer',
-        fontFamily: 'inherit',
+        padding:      '4px var(--space-3)',
+        fontSize:     'var(--text-label)',
+        color:        'var(--color-text-secondary)',
       }}
     >
       {period}
       <ChevronDown size={12} />
     </button>
-  )
+  );
 
   return (
     <Card title="Attendance Overview" action={periodBtn}>
+      {/* Legend */}
       <div style={{ display: 'flex', gap: 'var(--space-4)', marginBottom: 'var(--space-3)' }}>
         {LINES.map((l) => (
           <div key={l.key} style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-1)' }}>
@@ -113,6 +112,7 @@ export default function AttendanceLineChart() {
         </LineChart>
       </ResponsiveContainer>
 
+      {/* Accessible summary for screen readers */}
       <details style={{ marginTop: 'var(--space-3)' }}>
         <summary style={{ fontSize: 12, color: 'var(--color-text-tertiary)', cursor: 'pointer' }}>
           Data table (accessibility)
@@ -142,5 +142,7 @@ export default function AttendanceLineChart() {
         </div>
       </details>
     </Card>
-  )
-}
+  );
+};
+
+export default AttendanceLineChart;

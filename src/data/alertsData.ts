@@ -1,5 +1,5 @@
 // src/data/alertsData.ts
-import { Alert } from '../types/hospital-admin/types'
+import { Alert } from './types'
 
 export const alertsData: Alert[] = [
   {

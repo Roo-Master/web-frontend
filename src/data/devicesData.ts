@@ -1,5 +1,5 @@
 // src/data/devicesData.ts
-import { Device } from '../types/hospital-admin/types'
+import { Device } from './types'
 
 export const devicesData: Device[] = [
   {

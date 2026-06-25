@@ -1,5 +1,5 @@
 // src/data/notificationsPageData.ts
-import { AppNotification } from '../types/hospital-admin/types'
+import { AppNotification } from './types'
 
 export const initialNotifications: AppNotification[] = [
   {

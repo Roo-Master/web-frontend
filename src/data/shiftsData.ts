@@ -1,5 +1,5 @@
 // src/data/shiftsData.ts
-import { ShiftTemplate } from '../types/hospital-admin/types'
+import { ShiftTemplate } from './types'
 
 export const initialShifts: ShiftTemplate[] = [
   {

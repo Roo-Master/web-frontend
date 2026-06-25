@@ -5,7 +5,7 @@ import React, { ReactNode, useState } from 'react';
 import { HRSidebar } from './HRSidebar';
 import { HRNavbar } from './HRNavbar';
 import { PulseStrip } from '@/components/ui';
-import type { AuthUser } from '@/types/hod';
+import type { AuthUser } from '@/types';
 
 interface HRDashboardLayoutProps {
   children: ReactNode;
